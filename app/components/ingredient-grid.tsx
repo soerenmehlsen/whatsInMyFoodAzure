@@ -1,5 +1,4 @@
 import { IngredientItem } from "@/app/page";
-import Image from "next/image";
 
 interface IngredientGridProps {
     items: IngredientItem[];

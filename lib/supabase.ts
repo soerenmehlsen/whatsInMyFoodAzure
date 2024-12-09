@@ -8,7 +8,7 @@ export const supabase = createClient(supabaseUrl, supabaseKey);
 export const uploadImageToSupabase = async (file: File) => {
     try {
         const fileName = `images/${Date.now()}_${file.name}`;
-        const { data, error } = await supabase.storage
+        const { error } = await supabase.storage
             .from("IngredientBucket") // Replace with your bucket name
             .upload(fileName, file);
 

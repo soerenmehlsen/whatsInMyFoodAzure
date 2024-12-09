@@ -78,7 +78,7 @@ export default function Home() {
 
       <div className="max-w-3xl text-center mx-auto">
         <p className="mb-8 text-lg text-gray-500 text-balance">
-          Take a picture of your food's ingredient list and let AI help you understand each ingredient, so you know what you're eating.
+          Take a picture of your food&apos;s ingredient list and let AI help you understand each ingredient, so you know what you&apos;re eating.
         </p>
       </div>
 
