@@ -7,6 +7,7 @@ import { uploadImageToSupabase } from "@/lib/supabase";
 import { PhotoIcon, MagnifyingGlassIcon } from "@heroicons/react/20/solid";
 import { Input } from './components/ui/input';
 import { IngredientGrid } from "./components/ingredient-grid";
+import { Fade } from "react-awesome-reveal";
 
 export interface IngredientItem {
   name: string;
@@ -70,21 +71,45 @@ export default function Home() {
 
   return (
     <div className="container text-center px-4 py-8 max-w-5xl mx-auto">
+      <Fade
+          direction="up"
+          delay={400}
+          cascade
+          damping={1e-1}
+          triggerOnce={true}
+      >
       <div className="max-w-2xl text-center mx-auto sm:mt-20 mt-2">
         <h1 className="mb-6 text-balance text-6xl font-bold text-zinc-800">
           Understand your food ingredients with AI
         </h1>
       </div>
+        </Fade>
 
       <div className="max-w-3xl text-center mx-auto">
+        <Fade
+            direction="up"
+            delay={400}
+            cascade
+            damping={1e-1}
+            triggerOnce={true}
+        >
         <p className="mb-8 text-lg text-gray-500 text-balance">
           Take a picture of your food&apos;s ingredient list and let AI help you understand each ingredient, so you know what you&apos;re eating.
         </p>
+        </Fade>
       </div>
+      
 
       <div className="max-w-2xl mx-auto">
       {status === "initial" && (
           <>
+          <Fade
+              direction="right"
+              delay={300}
+              cascade
+              damping={1e-1}
+              triggerOnce={true}
+          >
             <Dropzone
               accept={{
                 "image/*": [".jpg", ".jpeg", ".png"],
@@ -120,12 +145,21 @@ export default function Home() {
                 </div>
               )}
             </Dropzone>
+            </Fade>
+          <Fade
+              direction="up"
+              delay={400}
+              cascade
+              damping={1e-1}
+              triggerOnce={true}
+          >
             <button
               className="mt-5 font-medium text-blue-400 text-md underline decoration-transparent hover:decoration-blue-200 decoration-2 underline-offset-4 transition hover:text-blue-500"
               onClick={() => {}}
             >
               Need an example image? Try here.
             </button>
+            </Fade>
           </>
         )}
 
