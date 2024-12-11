@@ -8,13 +8,12 @@ import { PhotoIcon, MagnifyingGlassIcon } from "@heroicons/react/20/solid";
 import { Input } from './components/ui/input';
 import { IngredientGrid } from "./components/ingredient-grid";
 import { Fade } from "react-awesome-reveal";
+import { exampleUrl, exampleIngredient } from "@/lib/consant";
 
 export interface IngredientItem {
   name: string;
   description: string;
-  ingredientImage: {
-    b64_json: string;
-  };
+  
 }
 
 export default function Home() {
@@ -34,7 +33,6 @@ export default function Home() {
     console.log("Signed URL:", publicUrl);
     setIngredientUrl(publicUrl);
     
-
     // Use the signed URL in your API request
 
     setStatus("parsing");
@@ -60,13 +58,24 @@ export default function Home() {
 
     setStatus("created");
     setParsedIngredient(json.ingredient);
+    console.log(json.ingredient);
   };
 
   const filteredIngredient = (parsedIngredient || []).filter((item) =>
       item.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  
+  const handleExampleImage = async () => {
+    setStatus("uploading");
+    setIngredientUrl(exampleUrl);
+    await new Promise((resolve) => setTimeout(resolve, 2000));
+    
+    setStatus("parsing");
+    await new Promise((resolve) => setTimeout(resolve, 2000));
+
+    setStatus("created");
+    setParsedIngredient(exampleIngredient);
+  };
 
 
   return (
@@ -155,7 +164,7 @@ export default function Home() {
           >
             <button
               className="mt-5 font-medium text-blue-400 text-md underline decoration-transparent hover:decoration-blue-200 decoration-2 underline-offset-4 transition hover:text-blue-500"
-              onClick={() => {}}
+              onClick={handleExampleImage}
             >
               Need an example image? Try here.
             </button>
