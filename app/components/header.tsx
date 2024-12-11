@@ -9,7 +9,7 @@ export function Header() {
         <div className="flex items-center justify-between">
           <Link href="/" className="flex items-center space-x-2">
             <MdOutlineFastfood className="h-8 w-8 text-gray-800" />
-            <span className="text-2xl font-bold text-gray-800">What&apos;s in my food?</span>
+            <span className="text-xl font-bold text-gray-800 sm:text-2xl">What&apos;s in my food?</span>
           </Link>
 
           <a

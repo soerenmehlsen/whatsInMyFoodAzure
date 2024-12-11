@@ -11,14 +11,16 @@ export function IngredientGrid({ items }: IngredientGridProps) {
     const [expandItem, setExpandItem] = useState<string | null>(null);
     
     const handleExpand = (itemName: string) => {
-        setExpandItem(expandItem === itemName ? null : itemName)};
-    
+        setExpandItem((prev) => (prev === itemName ? null : itemName));
+    }
     return (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {items.map((item) => (
                 <motion.div
                     key={item.name}
                     layout
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.3, ease: "easeInOut" }}
                     className={`bg-white rounded-lg shadow-md overflow-hidden ${
                         expandItem === item.name ? "shadow-lg" : "shadow-md"

@@ -13,7 +13,6 @@ import { exampleUrl, exampleIngredient } from "@/lib/consant";
 export interface IngredientItem {
   name: string;
   description: string;
-  
 }
 
 export default function Home() {
@@ -33,8 +32,7 @@ export default function Home() {
     console.log("Signed URL:", publicUrl);
     setIngredientUrl(publicUrl);
     
-    // Use the signed URL in your API request
-
+    // Using the signed URL in the API request
     setStatus("parsing");
     const res = await fetch("/api/parseIngredient", {
       method: "POST",
