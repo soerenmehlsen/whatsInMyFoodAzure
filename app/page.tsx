@@ -141,12 +141,26 @@ export default function Home() {
           </div>
         )}
 
+        {status === "uploading" && (
+            <div className="mt-10 flex flex-col items-center">
+              <div className="flex items-center space-x-4 mb-6">
+                <div className="h-8 w-8 animate-spin rounded-full border-4 border-gray-200 border-t-blue-500" />
+                <p className="text-lg text-gray-600">
+                  Uploading your image...
+                </p>
+              </div>
+              <div className="w-full max-w-2xl space-y-4">
+                <div className="h-8 bg-gray-200 rounded-lg animate-pulse" />
+              </div>
+            </div>
+        )}
+
         {status === "parsing" && (
           <div className="mt-10 flex flex-col items-center">
             <div className="flex items-center space-x-4 mb-6">
               <div className="h-8 w-8 animate-spin rounded-full border-4 border-gray-200 border-t-blue-500" />
               <p className="text-lg text-gray-600">
-                Creating your visual menu...
+                Processing the ingredient list...
               </p>
             </div>
             <div className="w-full max-w-2xl space-y-4">
@@ -164,10 +178,27 @@ export default function Home() {
           </div>
         )}
       </div>
+
+      {status === "created" && (
+          <div className="mt-10 flex flex-col items-center">
+            <p className="text-lg text-gray-600">
+              Ingredient list successfully created!
+            </p>
+          </div>
+      )}
+
+      {status === "error" && (
+          <div className="mt-10 flex flex-col items-center">
+            <p className="text-lg text-red-600">
+              Oops! Something went wrong. Please try again.
+            </p>
+          </div>
+      )}
+      
       {parsedIngredient.length > 0 && (
         <div className="mt-10">
           <h2 className="text-4xl font-bold mb-5">
-            Ingredients – {parsedIngredient.length} items detected
+            {parsedIngredient.length} Ingredients detected
           </h2>
           <div className="relative mb-6">
             <MagnifyingGlassIcon className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-400" />
