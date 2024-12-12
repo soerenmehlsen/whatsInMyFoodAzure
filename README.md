@@ -6,13 +6,17 @@
 
 ## Tech stack
 
-- [Llama 3.2 Vision 90B]
-- [Llama 3.1 8B]
-- Next.js
-- Supabase
+- [Llama 3.2 Vision 90B] (Scan text from image)
+- [Llama 3.1 70B] (Gives a description of the ingrediens)
+- Next.js (Framework)
+- Supabase (Saves the images in the database)
 
 ## Future Tasks
 
 - [ ] Indicator that can show how processed the food is
 - [ ] Make space for longer description of the ingredients
 - [ ] Higlight the ingredients for your allergies
+- [ ] Classification of processed food based on the NOVA-classiciationsystem. (Gives the user a overview of the food's health profile)
+- [ ] Health risk analysis of the food
+- [ ] Personal profile with preferences (allgergies)
+- [ ] Barcode scan - Scan the food's barcode and get the information about the food's ingredients
