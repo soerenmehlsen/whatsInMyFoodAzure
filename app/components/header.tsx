@@ -16,7 +16,7 @@ export function Header() {
 
           <a
             className="flex max-w-fit items-center justify-center space-x-2 rounded-full border border-gray-300 bg-white px-4 py-2 text-sm text-gray-600 shadow-md transition-colors hover:bg-gray-100"
-            href=""
+            href="https://github.com/soerenmehlsen/whatsInMyFood"
             target="_blank"
           >
             <FaGithub className="h-5 w-5" />

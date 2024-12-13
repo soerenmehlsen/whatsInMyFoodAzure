@@ -235,7 +235,7 @@ export default function Home() {
       {parsedIngredient.length > 0 && (
         <div className="mt-10">
           <h2 className="text-4xl font-bold mb-5">
-            {parsedIngredient.length} Ingredients detected
+           Found {parsedIngredient.length} ingredients
           </h2>
           <div className="relative mb-6">
             <MagnifyingGlassIcon className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-400" />
