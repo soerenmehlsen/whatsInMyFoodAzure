@@ -1,4 +1,4 @@
-import { IngredientItem } from "@/app/page";
+import { IngredientItem } from "@/app/components/ImageUploader";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { Tooltip } from "@mui/material";
