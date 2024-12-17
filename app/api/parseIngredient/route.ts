@@ -1,6 +1,4 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
-import { z } from "zod";
-import zodToJsonSchema from "zod-to-json-schema";
 
 // Initialize the Google AI client
 const genAI = new GoogleGenerativeAI(process.env.GOOGLE_API_KEY!);
@@ -58,18 +56,7 @@ ONLY RETURN THE OUTPUT AS JSON FORMAT. It is very important that you strictly fo
   const ingredientItems = cleanJsonResponse(response.text());
   console.log(`First API call duration: ${Date.now() - outputStartTime}ms`);
   console.log({ ingredientItems });
-
-  // Add ingredients with descriptions
-  const ingredientSchema = z.array(
-    z.object({
-      name: z.string().describe("The name of the ingredient item"),
-      description: z
-        .string()
-        .describe("Write a short description of the ingredient item"),
-    }),
-  );
-  const jsonSchema = zodToJsonSchema(ingredientSchema, "ingredientSchema");
-
+  
   const secondSystemPrompt = `You are provided with a list of ingredient names in JSON format. Some ingredient names contain multiple E-numbers within parentheses. Your task is to enhance and split these ingredients so that each E-number becomes its own entry in the list, with a separate description for each E-number.
 
 The final output should strictly adhere to the following JSON format:
