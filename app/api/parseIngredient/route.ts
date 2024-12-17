@@ -1,8 +1,18 @@
-import { Together } from "together-ai";
+import { GoogleGenerativeAI } from "@google/generative-ai";
 import { z } from "zod";
 import zodToJsonSchema from "zod-to-json-schema";
 
-const together = new Together();
+// Initialize the Google AI client
+const genAI = new GoogleGenerativeAI(process.env.GOOGLE_API_KEY!);
+
+// Helper function to clean JSON response
+function cleanJsonResponse(text: string): string {
+  // Remove markdown code blocks and any extra whitespace
+  return text
+    .replace(/```json\n?/g, '')
+    .replace(/```\n?/g, '')
+    .trim();
+}
 
 export async function POST(request: Request) {
   const { ingredientUrl } = await request.json();
@@ -16,6 +26,8 @@ export async function POST(request: Request) {
     );
   }
 
+  const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash-latest" });
+
   // extract ingredients from the image
   const systemPrompt = `You are given an image of a food ingredient list. Your job is to extract all the ingredients from the list including the ingredients with parentheses and convert it into the following JSON format: 
 
@@ -24,27 +36,27 @@ export async function POST(request: Request) {
 ONLY RETURN THE OUTPUT AS JSON FORMAT. It is very important that you strictly follow this format.`;
 
   const outputStartTime = Date.now();
-  const output = await together.chat.completions.create({
-    model: "meta-llama/Llama-3.2-90B-Vision-Instruct-Turbo",
-    messages: [
-      {
-        role: "user",
-        // @ts-expect-error api is not typed
-        content: [
-          { type: "text", text: systemPrompt },
-          {
-            type: "image_url",
-            image_url: {
-              url: ingredientUrl,
-            },
-          },
-        ],
-      },
-    ],
-  });
+  
+  // Fetch the image data
+  const imageResponse = await fetch(ingredientUrl);
+  const imageData = await imageResponse.arrayBuffer();
+  
+  // Convert array buffer to base64
+  const base64Image = Buffer.from(imageData).toString('base64');
+  
+  const result = await model.generateContent([
+    systemPrompt,
+    {
+      inlineData: {
+        mimeType: "image/jpeg",
+        data: base64Image
+      }
+    }
+  ]);
+  
+  const response = await result.response;
+  const ingredientItems = cleanJsonResponse(response.text());
   console.log(`First API call duration: ${Date.now() - outputStartTime}ms`);
-
-  const ingredientItems = output?.choices[0]?.message?.content;
   console.log({ ingredientItems });
 
   // Add ingredients with descriptions
@@ -79,26 +91,22 @@ You are a nutrition and food expert. Your task now is to provide formative descr
 ONLY RETURN JSON. It is crucial that your response is properly formatted as JSON.`;
 
   const extractStartTime = Date.now();
-  const extract = await together.chat.completions.create({
-    messages: [
-      {
-        role: "system",
-        content: secondSystemPrompt,
-      },
-      {
-        role: "user",
-        content: ingredientItems!,
-      },
-    ],
-    model: "meta-llama/Llama-3.3-70B-Instruct-Turbo",
-    // @ts-expect-error - this is not typed in the API
-    response_format: { type: "json_object", schema: jsonSchema },
-  });
-
+  const extractResult = await model.generateContent([
+    { text: secondSystemPrompt },
+    { text: ingredientItems }
+  ]);
+  
+  const extractResponse = await extractResult.response;
   let ingredientItemsJSON;
-  if (extract?.choices?.[0]?.message?.content) {
-    ingredientItemsJSON = JSON.parse(extract?.choices?.[0]?.message?.content);
+  try {
+    ingredientItemsJSON = JSON.parse(cleanJsonResponse(extractResponse.text()));
     console.log({ ingredientItemsJSON });
+  } catch (error) {
+    console.error('Error parsing JSON:', error);
+    return Response.json(
+      { error: 'Failed to parse ingredient descriptions' },
+      { status: 500 }
+    );
   }
   console.log(`Total request duration: ${Date.now() - extractStartTime}ms`);
 
@@ -123,22 +131,21 @@ The language used for the descriptions must match the language of the ingredient
 ONLY RETURN JSON OUTPUT.`;
 
   const classifyNovaStartTime = Date.now();
-  const classifyNova = await together.chat.completions.create({
-    messages: [
-      {
-        role: "system",
-        content: novaPrompt,
-      },
-    ],
-    model: "meta-llama/Llama-3.3-70B-Instruct-Turbo",
-  });
-
+  const novaResult = await model.generateContent([
+    { text: novaPrompt }
+  ]);
+  
+  const novaResponse = await novaResult.response;
   let classifiedIngredients;
-  if (classifyNova?.choices?.[0]?.message?.content) {
-    classifiedIngredients = JSON.parse(
-      classifyNova?.choices?.[0]?.message?.content,
-    );
+  try {
+    classifiedIngredients = JSON.parse(cleanJsonResponse(novaResponse.text()));
     console.log({ classifiedIngredients });
+  } catch (error) {
+    console.error('Error parsing NOVA classification JSON:', error);
+    return Response.json(
+      { error: 'Failed to parse NOVA classifications' },
+      { status: 500 }
+    );
   }
 
   console.log(

@@ -3,150 +3,147 @@ export const exampleUrl =
 
 export const exampleIngredient = [
   {
-    name: "hvedemel",
-    description:
-      "En type mel fremstillet af hvede, der er blevet malet til en fin tekstur.",
-    nova_classification: "1. Unprocessed or minimally processed foods",
-    reason:
-      "Hvedemel er fremstillet ved at male hvede, hvilket er en minimal bearbejdning.",
+    name: 'hvedemel 79%',
+    description: 'Hvedemel, 79% af produktet.',
+    nova_classification: '2. Processed culinary ingredients',
+    reason: 'Hvedemel er et behandlet kornprodukt, men det er stadig et relativt enkelt ingrediens, der bruges i madlavning.'
   },
   {
-    name: "palmeolie",
-    description:
-      "En type vegetabilsk olie udvundet fra frugterne af palmeplanten.",
-    nova_classification: "2. Processed culinary ingredients",
-    reason:
-      "Palmeolie udvindes fra palmeplanten og kan bruges som ingrediens i madlavning.",
+    name: 'palmeolie',
+    description: 'Palmeolie, et vegetabilsk fedtstof.',
+    nova_classification: '2. Processed culinary ingredients',
+    reason: 'Palmeolie er et raffineret vegetabilsk fedtstof, der er blevet behandlet, men det er stadig en enkelt ingrediens.'
   },
   {
-    name: "salt",
-    description: "Et naturligt mineral, der bruges som smagstilsætning.",
-    nova_classification: "2. Processed culinary ingredients",
-    reason:
-      "Salt er et naturligt mineral, der udvindes og renSES, før det kan bruges som ingrediens i madlavning.",
+    name: 'salt',
+    description: 'Salt, natriumklorid, til at give smag.',
+    nova_classification: '2. Processed culinary ingredients',
+    reason: 'Salt er et raffineret mineral, der er blevet behandlet, men det er stadig en enkelt ingrediens.'
   },
   {
-    name: "krydderier",
-    description:
-      "En blanding af tørrede eller friske urter og planter, der bruges til at tilføje smag til mad.",
-    nova_classification: "2. Processed culinary ingredients",
-    reason:
-      "Krydderier er en blanding af urter og planter, der tørres og males, før de kan bruges som ingrediens i madlavning.",
+    name: 'krydderier',
+    description: 'En blanding af forskellige krydderier for smag og aroma.',
+    nova_classification: '2. Processed culinary ingredients',
+    reason: 'Krydderier kan være tørrede og/eller malede, men de er stadig relativt ubehandlede.'
   },
   {
-    name: "sukker",
-    description: "En type næringsstof, der bruges som sødemiddel.",
-    nova_classification: "2. Processed culinary ingredients",
-    reason:
-      "Sukker er en type næringsstof, der udvindes fra planter og raffineres, før det kan bruges som ingrediens i madlavning.",
+    name: 'sukker',
+    description: 'Sukker, saccharose, til sødme.',
+    nova_classification: '2. Processed culinary ingredients',
+    reason: 'Sukker er et raffineret produkt af sukkerrør eller sukkerroer, men det er stadig en enkelt ingrediens.'
   },
   {
-    name: "E621",
-    description:
-      "Mononatriumglutamat, en smagsforstærker, der bruges til at forstærke umamismagen i mad.",
-    nova_classification: "4. Ultra-processed foods",
-    reason: "E621 er en kunstig smagsforstærker, der fremstilles industrielt.",
+    name: 'E621',
+    description: 'E621 (Mononatriumglutamat), en smagsforstærker, der fremhæver den umami-smag.',
+    nova_classification: '4. Ultra-processed foods',
+    reason: 'E621 er et tilsætningsstof, der er kemisk fremstillet og ikke findes naturligt i fødevarer.'
   },
   {
-    name: "E635",
-    description:
-      "Natrium-5-ribonukleotid, en smagsforstærker, der bruges til at forstærke umamismagen i mad.",
-    nova_classification: "4. Ultra-processed foods",
-    reason: "E635 er en kunstig smagsforstærker, der fremstilles industrielt.",
+    name: 'E635',
+    description: "E635 (5'-ribonukleotider), en smagsforstærker, der forbedrer smagen.",
+    nova_classification: '4. Ultra-processed foods',
+    reason: 'E635 er et tilsætningsstof, der er kemisk fremstillet og ikke findes naturligt i fødevarer.'
   },
   {
-    name: "chilipulver",
-    description:
-      "En tørret og malet form af chili-peber, der bruges til at tilføje varme og smag til mad.",
-    nova_classification: "2. Processed culinary ingredients",
-    reason:
-      "Chilipulver er en tørret og malet form af chili-peber, der kan bruges som ingrediens i madlavning.",
+    name: 'chilipulver',
+    description: 'Chili pulver, for at give en let krydret smag.',
+    nova_classification: '2. Processed culinary ingredients',
+    reason: 'Chili pulver er tørret og malet chili, men det er stadig et relativt ubehandlet krydderi.'
   },
   {
-    name: "tørret forårslog",
-    description:
-      "En tørret og malet form af forårslog, der bruges som krydderi.",
-    nova_classification: "2. Processed culinary ingredients",
-    reason:
-      "Tørret forårslog er en tørret og malet form af forårslog, der kan bruges som ingrediens i madlavning.",
+    name: 'tørret forårsløg',
+    description: 'Tørret forårsløg, til at give en let løgsmag.',
+    nova_classification: '2. Processed culinary ingredients',
+    reason: 'Tørret forårsløg er et minimalt behandlet produkt.'
   },
   {
-    name: "aroma",
-    description:
-      "En kunstig eller naturlig duftstof, der bruges til at tilføje en bestemt lugt eller smag til mad.",
-    nova_classification: "4. Ultra-processed foods",
-    reason:
-      "Aroma er en kunstig eller naturlig duftstof, der fremstilles industrielt.",
+    name: 'aroma',
+    description: 'En kompleks blanding af aromastoffer, der bidrager til den samlede smagsprofil.',
+    nova_classification: '4. Ultra-processed foods',
+    reason: 'Aromaer er ofte komplekse blandinger af syntetiske og/eller naturligt ekstraherede stoffer, og er derfor ultra-forarbejdede.'
   },
   {
-    name: "E500(ii)",
-    description:
-      "Natriumhydrogenkarbonat, en surhedsregulerende midler, der bruges til at regulere pH-værdien i mad.",
-    nova_classification: "4. Ultra-processed foods",
-    reason:
-      "E500(ii) er en kunstig surhedsregulerende midler, der fremstilles industrielt.",
+    name: 'E500(ii)',
+    description: 'E500(ii) (Natriumcarbonater), et surhedsregulerende middel.',
+    nova_classification: '4. Ultra-processed foods',
+    reason: 'E500(ii) er et tilsætningsstof, der er kemisk fremstillet og ikke findes naturligt i fødevarer.'
   },
   {
-    name: "E501(i)",
-    description:
-      "Kaliumcarbonat, en surhedsregulerende midler, der bruges til at regulere pH-værdien i mad.",
-    nova_classification: "4. Ultra-processed foods",
-    reason:
-      "E501(i) er en kunstig surhedsregulerende midler, der fremstilles industrielt.",
+    name: 'E501(i)',
+    description: 'E501(i) (Kaliumsulfater), et surhedsregulerende middel.',
+    nova_classification: '4. Ultra-processed foods',
+    reason: 'E501(i) er et tilsætningsstof, der er kemisk fremstillet og ikke findes naturligt i fødevarer.'
   },
   {
-    name: "E451(i)",
-    description:
-      "Tripotassiumcitrat, en surhedsregulerende midler, der bruges til at regulere pH-værdien i mad.",
-    nova_classification: "4. Ultra-processed foods",
-    reason:
-      "E451(i) er en kunstig surhedsregulerende midler, der fremstilles industrielt.",
+    name: 'E451(i)',
+    description: 'E451(i) (Trikalciumphosphat), et emulgator og stabilisator',
+    nova_classification: '4. Ultra-processed foods',
+    reason: 'E451(i) er et tilsætningsstof, der er kemisk fremstillet og ikke findes naturligt i fødevarer.'
   },
   {
-    name: "E330",
-    description:
-      "Citronsyre, en surhedsregulerende midler, der bruges til at regulere pH-værdien i mad.",
-    nova_classification: "4. Ultra-processed foods",
-    reason:
-      "E330 er en kunstig surhedsregulerende midler, der fremstilles industrielt.",
+    name: 'E330',
+    description: 'E330 (Citronsyre), et surhedsregulerende middel.',
+    nova_classification: '2. Processed culinary ingredients',
+    reason: 'Selvom E330 kan være syntetisk fremstillet, findes den også naturligt i citrusfrugter og er et relativt simpelt stof.'
   },
   {
-    name: "E466",
-    description:
-      "Carboxymethylcellulose, et fortykningsmiddel, der bruges til at øge konsistensen af mad.",
-    nova_classification: "4. Ultra-processed foods",
-    reason:
-      "E466 er en kunstig fortykningsmiddel, der fremstilles industrielt.",
+    name: 'E466',
+    description: 'E466 (Cellulosegummi), et fortykningsmiddel, der giver en mere cremet konsistens.',
+    nova_classification: '4. Ultra-processed foods',
+    reason: 'E466 er et tilsætningsstof, der er kemisk fremstillet og ikke findes naturligt i fødevarer.'
   },
   {
-    name: "almindelig karamel",
-    description:
-      "En type farvestof, der bruges til at give mad en brun eller gul farve.",
-    nova_classification: "4. Ultra-processed foods",
-    reason:
-      "Almindelig karamel er en type farvestof, der fremstilles industrielt.",
+    name: 'farve (almindelig karamel)',
+    description: 'Almindelig karamel, et naturligt farvestof.',
+    nova_classification: '2. Processed culinary ingredients',
+    reason: 'Almindelig karamel er et naturligt farvestof, men det er behandlet.'
   },
   {
-    name: "sojasauce",
-    description:
-      "En type sauce fremstillet af sojabønner, der bruges som smagstilsætning.",
-    nova_classification: "3. Processed foods",
-    reason:
-      "Sojasauce er en type sauce, der fremstilles af sojabønner og kan bruges som smagstilsætning i madlavning.",
+    name: 'sojasauce (sojabønner, vand, salt)',
+    description: 'Sojasovs lavet af sojabønner, vand og salt',
+    nova_classification: '3. Processed foods',
+    reason: 'Sojasovs er et fermenteret produkt, hvilket er en mere kompleks proces end minimal forarbejdning.'
   },
   {
-    name: "sojabønner",
-    description: "En type bælgfrugt, der bruges i fremstillingen af sojasauce.",
-    nova_classification: "1. Unprocessed or minimally processed foods",
-    reason:
-      "Sojabønner er en type bælgfrugt, der kan spises rå eller bruges i madlavning med minimal bearbejdning.",
+    name: 'æg',
+    description: 'Æg, en kilde til protein og fedt',
+    nova_classification: '1. Unprocessed or minimally processed foods',
+    reason: 'Æg er et uforarbejdet fødevareprodukt.'
   },
   {
-    name: "spor af æg",
-    description:
-      "En allergen, der kan være til stede i produkterne som følge af korskontamination.",
-    nova_classification: "1. Unprocessed or minimally processed foods",
-    reason:
-      "Spor af æg er en naturlig allergen, der kan være til stede i produkterne som følge af korskontamination.",
+    name: 'mælk',
+    description: 'Mælk, en kilde til protein, calcium og vitaminer.',
+    nova_classification: '1. Unprocessed or minimally processed foods',
+    reason: 'Mælk er et uforarbejdet fødevareprodukt.'
   },
+  {
+    name: 'krebsdyr',
+    description: 'Krebsdyr, en kilde til protein og omega-3 fedtsyrer.',
+    nova_classification: '1. Unprocessed or minimally processed foods',
+    reason: 'Krebsdyr er et uforarbejdet fødevareprodukt.'
+  },
+  {
+    name: 'fisk',
+    description: 'Fisk, en kilde til protein og omega-3 fedtsyrer.',
+    nova_classification: '1. Unprocessed or minimally processed foods',
+    reason: 'Fisk er et uforarbejdet fødevareprodukt.'
+  },
+  {
+    name: 'sesam',
+    description: 'Sesamfrø, rige på olie og fibre.',
+    nova_classification: '1. Unprocessed or minimally processed foods',
+    reason: 'Sesamfrø er et uforarbejdet fødevareprodukt.'
+  },
+  {
+    name: 'selleri',
+    description: 'Selleri, en grøntsag med en mild smag.',
+    nova_classification: '1. Unprocessed or minimally processed foods',
+    reason: 'Selleri er en uforarbejdet grøntsag.'
+  },
+  {
+    name: 'bløddyr',
+    description: 'Bløddyr, en kilde til protein.',
+    nova_classification: '1. Unprocessed or minimally processed foods',
+    reason: 'Bløddyr er et uforarbejdet fødevareprodukt.'
+  }
 ];
