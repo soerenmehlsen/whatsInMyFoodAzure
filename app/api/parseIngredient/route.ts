@@ -1,16 +1,39 @@
-import { GoogleGenerativeAI } from "@google/generative-ai";
+import {GoogleGenerativeAI, SchemaType} from "@google/generative-ai";
 
 // Initialize the Google AI client
 const genAI = new GoogleGenerativeAI(process.env.GOOGLE_API_KEY!);
 
-// Helper function to clean JSON response
-function cleanJsonResponse(text: string): string {
-  // Remove markdown code blocks and any extra whitespace
-  return text
-    .replace(/```json\n?/g, '')
-    .replace(/```\n?/g, '')
-    .trim();
-}
+// Defines the JSON schema for a consistent and structured output
+const schema = {
+  description: "Classified ingredient list",
+  type: SchemaType.ARRAY,
+  items: {
+    type: SchemaType.OBJECT,
+    properties: {
+      name: {
+        type: SchemaType.STRING,
+        description: "Name of the ingredient",
+        nullable: false,
+      },
+      description: {
+        type: SchemaType.STRING,
+        description: "Description of the ingredient",
+        nullable: true,
+      },
+      nova_classification: {
+        type: SchemaType.STRING,
+        description: "NOVA classification group",
+        nullable: true,
+      },
+      reason: {
+        type: SchemaType.STRING,
+        description: "Reason for the classification",
+        nullable: true,
+      },
+    },
+    required: ["name"],
+  },
+};
 
 export async function POST(request: Request) {
   const { ingredientUrl } = await request.json();
@@ -24,26 +47,46 @@ export async function POST(request: Request) {
     );
   }
 
-  const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash-latest" });
+  const model = genAI.getGenerativeModel({
+    model: "gemini-1.5-flash-latest",
+    generationConfig: {
+      responseMimeType: "application/json",
+      responseSchema: schema,
+    },
+  });
 
-  // extract ingredients from the image
-  const systemPrompt = `You are given an image of a food ingredient list. Your job is to extract all the ingredients from the list including the ingredients with parentheses and convert it into the following JSON format: 
+  // Instructions for the model
+  const systemPrompt = `You are an expert in food and nutrition. Your task is to extract ingredients from an image of a food ingredient list, 
+  enhance them by splitting complex entries like E-numbers into separate components with descriptions that match the language of the ingredient name, and classify them using the NOVA food classification system. 
+  
+  When splitting ingredients with multiple E-numbers, follow these rules:
+1. Create a separate entry for each E-number.
+2. Retain the original ingredient name for context, but make the E-number the focus of each entry (e.g., "Smagsforstærker (E621)" becomes "E621").
+3. Provide a clear, user-friendly explanation of each E-number.
+4. Exclude duplicate descriptions and ensure clarity.
+5. Exclude duplicate ingredient names.
+  
+You have to provide formative descriptions that is clear and concise for each ingredients. 
+Use the NOVA groups to justify the classification with a reason in the same language as the ingredient name and description.
 
-[{"name": "name of the ingredient or numbers"}, ...]
-
-ONLY RETURN THE OUTPUT AS JSON FORMAT. It is very important that you strictly follow this format.`;
+NOVA Classification Groups:
+1. Unprocessed or minimally processed foods: These are natural foods that have been cleaned, sliced, or otherwise minimally altered.
+2. Processed culinary ingredients: These include items like sugar, oils, and salts, which are derived from natural foods but used to prepare other dishes.
+3. Processed foods: Foods that combine natural ingredients with culinary ingredients and undergo preservation methods like canning or freezing.
+4. Ultra-processed foods: These are industrially formulated products with ingredients like emulsifiers, preservatives, and artificial flavors.`;
 
   const outputStartTime = Date.now();
-  
-  // Fetch the image data
+
+  // Fetch the image data from the provided URL
   const imageResponse = await fetch(ingredientUrl);
   const imageData = await imageResponse.arrayBuffer();
-  
-  // Convert array buffer to base64
+
+  // Convert the image data to base64
   const base64Image = Buffer.from(imageData).toString('base64');
-  
+
+  // Api request to the model
   const result = await model.generateContent([
-    systemPrompt,
+    { text: systemPrompt },
     {
       inlineData: {
         mimeType: "image/jpeg",
@@ -52,94 +95,23 @@ ONLY RETURN THE OUTPUT AS JSON FORMAT. It is very important that you strictly fo
     }
   ]);
   
+  // Parse the response as JSON
   const response = await result.response;
-  const ingredientItems = cleanJsonResponse(response.text());
-  console.log(`First API call duration: ${Date.now() - outputStartTime}ms`);
-  console.log({ ingredientItems });
-  
-  const secondSystemPrompt = `You are provided with a list of ingredient names in JSON format. Some ingredient names contain multiple E-numbers within parentheses. Your task is to enhance and split these ingredients so that each E-number becomes its own entry in the list, with a separate description for each E-number.
-
-The final output should strictly adhere to the following JSON format:
-
-[
-  {"name": "name of the ingredient", "description": "description of the ingredient"},
-  ...
-]
-
-When splitting ingredients with multiple E-numbers, follow these rules:
-1. Create a separate entry for each E-number.
-2. Retain the original ingredient name for context, but make the E-number the focus of each entry (e.g., "Smagsforstærker (E621)" becomes "E621").
-3. Provide a clear, user-friendly explanation of each E-number.
-4. Exclude duplicate descriptions and ensure clarity.
-5. Exclude duplicate ingredient names.
-
-You are a nutrition and food expert. Your task now is to provide formative descriptions that is clear and concise for each ingredients. The language used for the descriptions must match the language of the ingredient names.
-
-ONLY RETURN JSON. It is crucial that your response is properly formatted as JSON.`;
-
-  const extractStartTime = Date.now();
-  const extractResult = await model.generateContent([
-    { text: secondSystemPrompt },
-    { text: ingredientItems }
-  ]);
-  
-  const extractResponse = await extractResult.response;
-  let ingredientItemsJSON;
+  let parsedIngredients;
   try {
-    ingredientItemsJSON = JSON.parse(cleanJsonResponse(extractResponse.text()));
-    console.log({ ingredientItemsJSON });
+    parsedIngredients = JSON.parse(response.text());
+    console.log({ parsedIngredients });
   } catch (error) {
-    console.error('Error parsing JSON:', error);
+    console.error('Error parsing ingredients JSON:', error);
     return Response.json(
-      { error: 'Failed to parse ingredient descriptions' },
-      { status: 500 }
-    );
-  }
-  console.log(`Total request duration: ${Date.now() - extractStartTime}ms`);
-
-  // Classify ingredients based on NOVA classification
-  const novaPrompt = `You are a nutritionist and food scientist. Your job is to classify ingredients based on the NOVA food classification system. For each ingredient provided in JSON format, determine the NOVA group it belongs to and include a reason for your classification.
-
-NOVA classification:
-1. Unprocessed or minimally processed foods
-2. Processed culinary ingredients
-3. Processed foods
-4. Ultra-processed foods
-
-Input:
-${JSON.stringify(ingredientItemsJSON, null, 2)}
-
-Expected output:
-[
-  {"name": "name of the ingredient", "description": "description of the ingredient", "nova_classification": "NOVA group", "reason": "reason for classification"},
-  ...
-]
-The language used for the descriptions must match the language of the ingredient names.
-ONLY RETURN JSON OUTPUT.`;
-
-  const classifyNovaStartTime = Date.now();
-  const novaResult = await model.generateContent([
-    { text: novaPrompt }
-  ]);
-  
-  const novaResponse = await novaResult.response;
-  let classifiedIngredients;
-  try {
-    classifiedIngredients = JSON.parse(cleanJsonResponse(novaResponse.text()));
-    console.log({ classifiedIngredients });
-  } catch (error) {
-    console.error('Error parsing NOVA classification JSON:', error);
-    return Response.json(
-      { error: 'Failed to parse NOVA classifications' },
-      { status: 500 }
+        { error: 'Failed to parse ingredients data' },
+        { status: 500 }
     );
   }
 
-  console.log(
-    `NOVA classification request duration: ${Date.now() - classifyNovaStartTime}ms`,
-  );
+  console.log(`Total request duration: ${Date.now() - outputStartTime}ms`);
 
-  return Response.json({ ingredient: classifiedIngredients });
+  return Response.json({ ingredient: parsedIngredients });
 }
 
 export const maxDuration = 60;
