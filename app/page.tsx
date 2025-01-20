@@ -1,7 +1,16 @@
 import { Fade } from "./components/ui/fade";
 import { ImageUploader } from "./components/ImageUploader";
+import { auth } from "@clerk/nextjs/server";
+import { redirect } from "next/navigation";
 
-export default function Home() {
+
+export default async function Home() {
+  const { userId } = await auth();
+
+  if (userId) {
+    redirect("/dashboard");
+  }
+
   return (
     <div className="container text-center px-4 py-8 max-w-full mx-auto">
       <Fade delay={400} direction="up">
@@ -19,9 +28,7 @@ export default function Home() {
             you understand each ingredient, so you know what you&apos;re eating.
           </p>
         </Fade>
-      </div>
-
-      <ImageUploader />
+      </div> 
     </div>
   );
 }

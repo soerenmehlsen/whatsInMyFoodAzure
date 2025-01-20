@@ -75,7 +75,7 @@ export function ImageUploader() {
   };
 
   return (
-    <div>
+    <div className="container text-center px-4 py-8 max-w-full mx-auto">
       {status === "initial" && (
         <>
         <div className="max-w-2xl mx-auto">
@@ -117,7 +117,8 @@ export function ImageUploader() {
             </Dropzone>
           </Fade>
           </div>
-
+          
+          <div className="flex justify-center w-full my-5">
           <Fade direction="up" delay={400}>
             <button
               className="mt-5 font-medium text-blue-400 text-md underline decoration-transparent hover:decoration-blue-200 decoration-2 underline-offset-4 transition hover:text-blue-500"
@@ -126,6 +127,7 @@ export function ImageUploader() {
               Need an example image? Try here.
             </button>
           </Fade>
+          </div>
         </>
       )}
 
