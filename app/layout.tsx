@@ -5,11 +5,8 @@ import { Header } from "./components/header";
 import { Footer } from "./components/footer";
 import {
   ClerkProvider,
-  SignInButton,
   SignUpButton,
-  SignedIn,
   SignedOut,
-  UserButton
 } from '@clerk/nextjs'
 
 const geistSans = localFont({
@@ -43,11 +40,11 @@ export default function RootLayout({
             <main>{children}</main>
             <SignedOut>
                 <div className="flex justify-center">
-                <SignInButton>
-                  <button className="bg-black hover:bg-gray-800 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200 mb-10">
-                  Sign In
+                <SignUpButton>
+                  <button className="bg-black hover:bg-gray-500 text-white text-xl font-bold py-3 px-12 rounded-3xl transition-colors duration-200 mb-10">
+                  Sign Up
                   </button>
-                </SignInButton>
+                </SignUpButton>
                 </div>
           </SignedOut>
           <Footer />

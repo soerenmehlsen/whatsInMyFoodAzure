@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { MdOutlineFastfood } from "react-icons/md";
 import { FaGithub } from "react-icons/fa";
-import { UserButton } from '@clerk/nextjs'
+import { UserButton, SignedOut, SignInButton, SignUpButton, SignedIn} from '@clerk/nextjs'
 
 export function Header() {
   return (
@@ -15,7 +15,33 @@ export function Header() {
             </span>
           </Link>
 
-          <UserButton showName className="text-center" />
+          <SignedOut>
+            <div className="flex space-x-2">
+              <SignInButton>
+                <button
+                    className="bg-white hover:bg-gray-500 text-black font-semibold rounded-3xl border transition-colors duration-200 px-8 py-3">
+                  Login
+                </button>
+              </SignInButton>
+              <SignUpButton>
+                <button
+                    className="bg-black hover:bg-gray-500 text-white font-semibold rounded-3xl transition-colors duration-200 px-8 py-3">
+                  Sign Up
+                </button>
+              </SignUpButton>
+            </div>
+          </SignedOut>
+          
+          <SignedIn>
+            <UserButton
+                showName
+                appearance={{
+                  elements: {
+                    userButtonAvatarBox: "w-8 h-8",
+                  },
+                }}
+            />
+          </SignedIn>
         </div>
       </div>
     </header>
