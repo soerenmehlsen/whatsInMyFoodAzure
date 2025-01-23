@@ -34,14 +34,14 @@ export default async function Home() {
 
         <SignedOut>
           <div className="flex justify-center">
-            <SignUpButton>
               <Fade delay={600} direction="up">
+            <SignUpButton>
                 <button
                     className="bg-black hover:bg-gray-500 text-white text-xl font-bold py-3 px-12 rounded-3xl transition-colors duration-200 mb-10">
                   Sign Up
                 </button>
-              </Fade>
             </SignUpButton>
+              </Fade>
           </div>
         </SignedOut>
 
