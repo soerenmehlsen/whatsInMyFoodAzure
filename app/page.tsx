@@ -53,7 +53,7 @@ export default async function Home() {
           
           <div>
               <h1 className="sm:mt-36 mt-20 text-balance text-4xl font-bold text-zinc-800">
-                Here's how it works
+                Here&apos;s how it works
               </h1>
           </div>
           
