@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 
+// Change the image based on the screen size
 const ResponsiveImage = () => {
     const [isMobile, setIsMobile] = useState(false);
 

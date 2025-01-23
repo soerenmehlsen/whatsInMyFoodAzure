@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { MdOutlineFastfood } from "react-icons/md";
-import { FaGithub } from "react-icons/fa";
 import { UserButton, SignedOut, SignInButton, SignUpButton, SignedIn} from '@clerk/nextjs'
 
 export function Header() {
