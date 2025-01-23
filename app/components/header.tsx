@@ -19,7 +19,7 @@ export function Header() {
             <div className="flex space-x-2">
               <SignInButton>
                 <button
-                    className="bg-white hover:bg-gray-500 text-black font-semibold rounded-3xl border transition-colors duration-200 px-8 py-3">
+                    className="bg-white hover:bg-gray-200 text-black font-semibold rounded-3xl border transition-colors duration-200 px-8 py-3">
                   Login
                 </button>
               </SignInButton>

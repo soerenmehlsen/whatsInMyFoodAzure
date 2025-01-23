@@ -2,7 +2,8 @@ import { Fade } from "./components/ui/fade";
 import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 import {SignedOut, SignUpButton} from "@clerk/nextjs";
-import Image from 'next/image'
+import ResponsiveImage from "./components/responsiveImage";
+
 
 export default async function Home() {
   const { userId } = await auth();
@@ -45,27 +46,18 @@ export default async function Home() {
 
         <div className="flex justify-center sm:mt-20 mt-2">
             <Fade delay={600} direction="up">
-            <Image
-                src="/Iphones.png"    
-                alt="Hero section image"
-                width={700}             
-                height={900}             
-                priority                
-            />
+                <ResponsiveImage />
             </Fade>
         </div>
           
           <div>
-            <Fade delay={600} direction="up">
               <h1 className="mb-6 sm:mt-20 mt-10 text-balance text-4xl font-bold text-zinc-800">
                 Here's how it works
               </h1>
-            </Fade>
           </div>
           
             <div className="max-w-7xl mx-auto flex flex-wrap justify-center mb-6 sm:mt-20 mt-10">
                 <div className="w-full sm:w-1/3 px-4">
-                <Fade delay={600} direction="up">
                     <div className="flex flex-col items-center sm:mt-2 mt-10">
                         <h1 className="text-2xl font-bold text-white mb-4 bg-black rounded-full w-12 h-12 flex items-center justify-center">
                             1
@@ -77,10 +69,8 @@ export default async function Home() {
                         Take a picture of your food&apos;s ingredient list.
                     </p>
                     </div>
-                </Fade>
                 </div>
                 <div className="w-full sm:w-1/3 px-4">
-                <Fade delay={600} direction="up">
                     <div className="flex flex-col items-center sm:mt-2 mt-10">
                         <h1 className="text-2xl font-bold text-white mb-4 bg-black rounded-full w-12 h-12 flex items-center justify-center">
                             2
@@ -89,13 +79,11 @@ export default async function Home() {
                             Process the image
                         </h2>
                         <p className="text-gray-500">
-                            The AI will scan the image and find the ingredients.
+                            The image will now be scanned for ingredients with AI.
                         </p>
                     </div>
-                </Fade>
                 </div>
                 <div className="w-full sm:w-1/3 px-4">
-                    <Fade delay={600} direction="up">
                         <div className="flex flex-col items-center sm:mt-2 mt-10">
                             <h1 className="text-2xl font-bold text-white mb-4 bg-black rounded-full w-12 h-12 flex items-center justify-center">
                                 3
@@ -107,19 +95,16 @@ export default async function Home() {
                                 You will get a detailed breakdown of each ingredient and how processed it is.
                             </p>
                         </div>
-                    </Fade>
                 </div>
             </div>
 
           <SignedOut>
               <div className="flex justify-center mt-20">
                   <SignUpButton>
-                      <Fade delay={600} direction="up">
                           <button
                               className="bg-black hover:bg-gray-500 text-white text-xl font-bold py-3 px-12 rounded-3xl transition-colors duration-200 mb-10">
                               Start now
                           </button>
-                      </Fade>
                   </SignUpButton>
               </div>
           </SignedOut>
