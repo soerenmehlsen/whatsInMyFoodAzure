@@ -14,7 +14,7 @@ export default async function Home() {
   }
 
   return (
-      <div className="container text-center px-4 py-8 max-w-full mx-auto">
+      <div className="container text-center px-4 py-8 mx-auto">
         <Fade delay={400} direction="up">
           <div className="max-w-2xl text-center mx-auto sm:mt-20 mt-2">
             <h1 className="mb-6 text-balance text-6xl font-bold text-zinc-800">

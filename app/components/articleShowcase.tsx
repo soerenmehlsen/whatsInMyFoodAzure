@@ -75,8 +75,8 @@ export default function ArticleShowcase() {
     }, []);
     
     return (
-        <div className="max-w-6xl mx-auto p-4">
-            <div className="relative overflow-hidden">
+        <div className="max-w-6xl mx-auto p-4 overflow-hidden">
+            <div className="relative ">
                 <div
                     className="flex transition-transform duration-500 ease-out"
                     style={{ transform: `translateX(-${current * (isMobile ? 100 : 33.33)}%)` }}
