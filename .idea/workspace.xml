@@ -4,15 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2075714f-83b3-43bc-ae58-81b17223b493" name="Changes" comment="Add: image and instructions of the app to the landing page">
+    <list default="true" id="2075714f-83b3-43bc-ae58-81b17223b493" name="Changes" comment="fix: Sign Up button didn't work, because of the fade component">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript JSX File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -29,7 +37,15 @@
     &quot;accountId&quot;: &quot;ea155866-b09d-47a2-b35e-60e668b02f00&quot;
   }
 }</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///Users/sorenmehlsen/whatsinmyfood/package-lock.json" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/package-lock.json" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/sorenmehlsen/whatsinmyfood/package.json" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
 }</component>
@@ -72,6 +88,8 @@
       <workItem from="1737460639153" duration="68000" />
       <workItem from="1737564859234" duration="7705000" />
       <workItem from="1737637371773" duration="293000" />
+      <workItem from="1737638442521" duration="21415000" />
+      <workItem from="1737676466236" duration="403000" />
     </task>
     <task id="LOCAL-00001" summary="Changed page.tsx to a server component">
       <option name="closed" value="true" />
@@ -97,7 +115,71 @@
       <option name="project" value="LOCAL" />
       <updated>1737579796418</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Add: responsiveImage component to change the image based on the screen size">
+      <option name="closed" value="true" />
+      <created>1737639826496</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1737639826496</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Add: articles to the landing page">
+      <option name="closed" value="true" />
+      <created>1737655187270</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1737655187270</updated>
+    </task>
+    <task id="LOCAL-00006" summary="performance: using Next image component to optimize images on articles">
+      <option name="closed" value="true" />
+      <created>1737670488742</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1737670488742</updated>
+    </task>
+    <task id="LOCAL-00007" summary="fix: install lucide-react packages">
+      <option name="closed" value="true" />
+      <created>1737670658283</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1737670658283</updated>
+    </task>
+    <task id="LOCAL-00008" summary="fix: ESLint rules on page.tsx with &amp;apos; on a text">
+      <option name="closed" value="true" />
+      <created>1737671035809</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1737671035809</updated>
+    </task>
+    <task id="LOCAL-00009" summary="fix: error in middleware.ts syntax">
+      <option name="closed" value="true" />
+      <created>1737672379349</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1737672379349</updated>
+    </task>
+    <task id="LOCAL-00010" summary="fix: horizontal scrolling on mobile. Cause by the outer container in the articleShowcase.tsx component">
+      <option name="closed" value="true" />
+      <created>1737673600658</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1737673600658</updated>
+    </task>
+    <task id="LOCAL-00011" summary="fix: Sign Up button didn't work, because of the fade component">
+      <option name="closed" value="true" />
+      <created>1737674160681</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1737674160681</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -105,11 +187,30 @@
   </component>
   <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Changed page.tsx to a server component" />
     <MESSAGE value="Add: SignIn and SignUp buttons in the header on the landing page" />
     <MESSAGE value="Add: image and instructions of the app to the landing page" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add: image and instructions of the app to the landing page" />
+    <MESSAGE value="Add: responsiveImage component to change the image based on the screen size" />
+    <MESSAGE value="Add: articles to the landing page" />
+    <MESSAGE value="performance: using Next image component to optimize images on articles" />
+    <MESSAGE value="fix: install lucide-react packages" />
+    <MESSAGE value="fix: ESLint rules on page.tsx with &amp;apos; on a text" />
+    <MESSAGE value="fix: error in middleware.ts syntax" />
+    <MESSAGE value="fix: horizontal scrolling on mobile. Cause by the outer container in the articleShowcase.tsx component" />
+    <MESSAGE value="fix: Sign Up button didn't work, because of the fade component" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: Sign Up button didn't work, because of the fade component" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
