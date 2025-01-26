@@ -147,3 +147,47 @@ export const exampleIngredient = [
     reason: 'Bløddyr er et uforarbejdet fødevareprodukt.'
   }
 ];
+
+export interface Article {
+  date: string;
+  title: string;
+  content: string;
+  Image: string;
+  link: string;
+  logo: string;
+}
+
+export const posts: Article[] = [
+  {
+    date: '2024-11-30',
+    title: 'Forskere advarer mod udbredt gruppe af fødevarer',
+    content: 'Forskere vil have os til at kigge på ingredienslisten, når vi køber ind. Hvis der er mere end fem ingredienser i en vare, bør vi være på vagt.',
+    Image: '/hotdog.png',
+    link: 'https://nyheder.tv2.dk/samfund/2024-11-30-forskere-advarer-mod-udbredt-gruppe-af-foedevarer',
+    logo: '/tv2.png'
+  },
+  {
+    date: '2024-6-12',
+    title: 'Forskere om ultraforarbejdede fødevarer: Sådan styrer du udenom supermarkedets sundhedsskadelige produkter',
+    content: 'Køb rigtig mad og lad de ultraforarbejdede fødevarer stå, siger to eksperter.',
+    Image: '/kodpaalaeg.png',
+    link: 'https://www.cancer.dk/nyheder-og-fortaellinger/2024/forskere-om-ultraforarbejdede-foedevarer-saadan-styrer-du-udenom-supermarkedets-sundhedsskadelige-produkter/',
+    logo: '/kraeftensBekaempelse.png'
+  },
+  {
+    date: '2024-7-11',
+    title: 'Sådan spotter du ultraforarbejdede fødevarer',
+    content: 'Du står i supermarkedet og vil gerne undgå at komme hjem med – alt for meget – ultraforarbejdet mad i dine indkøbsposer. Hvad gør du? Vi foreslår, du starter med denne guide.',
+    Image: '/supermarket.png',
+    link: 'https://iform.dk/sund-mad/kostraad/saadan-spotter-du-ultraforarbejdede-foedevarer',
+    logo: '/videnskabdk.png'
+  },
+  {
+    date: '2024-3-16',
+    title: 'Kæmpe studie kobler ultraforarbejdet mad til mange sygdomme – men hvad betyder det?',
+    content: 'Forskere er uenige om, hvordan resultaterne skal tolkes, og der er stadig meget, vi ikke ved om ultraforarbejdede fødevarer.',
+    Image: '/is.png',
+    link: 'https://videnskab.dk/krop-sundhed/kaempe-studie-kobler-ultraforarbejdet-mad-til-mange-sygdomme-men-hvad-betyder-det/',
+    logo: '/iform.png'
+  }
+];

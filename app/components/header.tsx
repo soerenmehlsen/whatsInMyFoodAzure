@@ -18,13 +18,13 @@ export function Header() {
             <div className="flex space-x-2">
               <SignInButton>
                 <button
-                    className="bg-white hover:bg-gray-200 text-black font-semibold rounded-3xl border transition-colors duration-200 px-8 py-3">
+                    className="bg-white hover:bg-gray-200 text-black font-semibold rounded-3xl border transition-colors duration-200 px-4 py-2 sm:px-8 sm:py-3 text-sm sm:text-base">
                   Login
                 </button>
               </SignInButton>
               <SignUpButton>
                 <button
-                    className="bg-black hover:bg-gray-500 text-white font-semibold rounded-3xl transition-colors duration-200 px-8 py-3">
+                    className="bg-black hover:bg-gray-500 text-white font-semibold rounded-3xl transition-colors duration-200 px-4 py-2 sm:px-8 sm:py-3 text-sm sm:text-base">
                   Sign Up
                 </button>
               </SignUpButton>

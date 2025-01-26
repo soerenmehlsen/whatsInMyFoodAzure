@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2075714f-83b3-43bc-ae58-81b17223b493" name="Changes" comment="fix: Sign Up button didn't work, because of the fade component">
+    <list default="true" id="2075714f-83b3-43bc-ae58-81b17223b493" name="Changes" comment="Add: Google Analytics">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,7 +87,9 @@
       <workItem from="1737564859234" duration="7705000" />
       <workItem from="1737637371773" duration="293000" />
       <workItem from="1737638442521" duration="21415000" />
-      <workItem from="1737676466236" duration="403000" />
+      <workItem from="1737676466236" duration="527000" />
+      <workItem from="1737677180078" duration="777000" />
+      <workItem from="1737733956545" duration="11000" />
     </task>
     <task id="LOCAL-00001" summary="Changed page.tsx to a server component">
       <option name="closed" value="true" />
@@ -179,7 +179,15 @@
       <option name="project" value="LOCAL" />
       <updated>1737674160681</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Add: Google Analytics">
+      <option name="closed" value="true" />
+      <created>1737676889438</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1737676889438</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -210,7 +218,8 @@
     <MESSAGE value="fix: error in middleware.ts syntax" />
     <MESSAGE value="fix: horizontal scrolling on mobile. Cause by the outer container in the articleShowcase.tsx component" />
     <MESSAGE value="fix: Sign Up button didn't work, because of the fade component" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: Sign Up button didn't work, because of the fade component" />
+    <MESSAGE value="Add: Google Analytics" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add: Google Analytics" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
