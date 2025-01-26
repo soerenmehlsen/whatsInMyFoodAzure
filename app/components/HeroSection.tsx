@@ -1,4 +1,4 @@
-import { SignedOut, SignUpButton } from "@clerk/nextjs";
+import { SignedOut} from "@clerk/nextjs";
 import { Fade } from "./ui/fade";
 import ResponsiveImage from "./responsiveImage";
 import SignUp from "./SignUpButton";
