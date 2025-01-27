@@ -1,8 +1,21 @@
+"use client"
 import Link from "next/link";
 import { MdOutlineFastfood } from "react-icons/md";
 import { UserButton, SignedOut, SignInButton, SignUpButton, SignedIn} from '@clerk/nextjs'
+import  React, { useState, useEffect } from 'react';
 
 export function Header() {
+    const [isMobile, setIsMobile] = useState(false);
+    
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth < 640);
+        };
+        
+        handleResize();
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
   return (
     <header className=" bg-white border-b border-gray-200">
       <div className="container mx-auto px-4 py-4">
@@ -33,7 +46,7 @@ export function Header() {
           
           <SignedIn>
             <UserButton
-                showName
+                showName={!isMobile}
                 appearance={{
                   elements: {
                     userButtonAvatarBox: "w-8 h-8",
