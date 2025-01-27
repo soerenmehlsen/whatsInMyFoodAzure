@@ -9,6 +9,10 @@ const WhyItMatters = () => {
               Why it matters
           </h1>
 
+          <p className="text-gray-500 mt-4 text-center">
+              Understanding the ingredients in your food is important for making informed dietary choices and maintaining a healthy lifestyle.
+          </p>
+
           <div className="flex justify-center sm:mt-20 mt-10">
               <ArticleShowcase />
           </div>
