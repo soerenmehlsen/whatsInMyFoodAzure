@@ -6,6 +6,7 @@ import { Footer } from "./components/footer";
 import { ClerkProvider } from '@clerk/nextjs'
 import { GoogleAnalytics } from '@next/third-parties/google'
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import { PostHogProvider } from "./providers";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -31,6 +32,7 @@ export default function RootLayout({
   return (
     <ClerkProvider>
     <html lang="en">
+    <PostHogProvider>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
@@ -40,6 +42,7 @@ export default function RootLayout({
           <SpeedInsights />
           <Footer />
       </body>
+    </PostHogProvider>
     </html>
     </ClerkProvider>
   );
