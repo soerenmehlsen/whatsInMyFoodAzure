@@ -5,6 +5,7 @@ import { Header } from "./components/header";
 import { Footer } from "./components/footer";
 import { ClerkProvider } from '@clerk/nextjs'
 import { GoogleAnalytics } from '@next/third-parties/google'
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -36,6 +37,7 @@ export default function RootLayout({
           <Header />
             <main>{children}</main>
           <GoogleAnalytics gaId="G-CXSN8X36QC" />
+          <SpeedInsights />
           <Footer />
       </body>
     </html>
