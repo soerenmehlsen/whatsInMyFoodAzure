@@ -3,6 +3,7 @@ import Link from "next/link";
 import { MdOutlineFastfood } from "react-icons/md";
 import { UserButton, SignedOut, SignInButton, SignUpButton, SignedIn} from '@clerk/nextjs'
 import  React, { useState, useEffect } from 'react';
+import  AnnouncementBanner  from './AnnoncementBanner';
 
 export function Header() {
     const [isMobile, setIsMobile] = useState(false);
@@ -56,6 +57,14 @@ export function Header() {
           </SignedIn>
         </div>
       </div>
+      <SignedOut>
+      <div className="text-center mx-auto ">
+                <AnnouncementBanner
+                    message="🎉 Limited Time Offer: Get Access Completely Free!"
+                    linkText="Try it Now →"
+                    />
+            </div>
+            </SignedOut>
     </header>
   );
 }
