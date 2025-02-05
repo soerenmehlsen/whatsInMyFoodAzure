@@ -8,8 +8,9 @@ import PostHogPageView from "./components/analytics/PostHogPageView";
 export function PostHogProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY!, {
-      api_host: process.env.NEXT_PUBLIC_POSTHOG_HOST,
-      capture_pageview: true, // Enable pageleave capture
+      api_host: "/ingest",
+      ui_host: "https://eu.posthog.com",
+      capture_pageview: true,
     });
   }, []);
 
