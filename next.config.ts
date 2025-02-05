@@ -6,6 +6,14 @@ const nextConfig: NextConfig = {
       ? [process.env.NEXT_PUBLIC_SUPABASE_DOMAIN]
       : [],
   },
+  async rewrites() {
+    return [
+      {
+        source: "/ingest/:path*",
+        destination: "https://eu.posthog.com/:path*",
+      },
+    ];
+  },
 };
 
 export default nextConfig;
