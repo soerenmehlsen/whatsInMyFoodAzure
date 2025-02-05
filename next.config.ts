@@ -12,18 +12,23 @@ const nextConfig: NextConfig = {
         source: "/ingest/static/:path*",
         destination: "https://eu-assets.i.posthog.com/static/:path*",
       },
+    ];
+  },
+  async redirects() {
+    return [
       {
-        source: "/ingest/:path*",
-        destination: "https://eu.i.posthog.com/:path*",
+        source: "/ingest/:path*", 
+        destination: "https://eu.i.posthog.com/:path*", 
+        permanent: false,
       },
       {
         source: "/ingest/decide",
         destination: "https://eu.i.posthog.com/decide",
+        permanent: false,
       },
     ];
   },
-  // This is required to support PostHog trailing slash API requests
-  skipTrailingSlashRedirect: true, 
+  skipTrailingSlashRedirect: true, // Required for PostHog API URLs
 };
 
 export default nextConfig;
