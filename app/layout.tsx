@@ -21,7 +21,22 @@ const geistMono = localFont({
 
 export const metadata: Metadata = {
   title: "What's in my food?",
-  description: "Understand your food ingredients with AI",
+  description: "Empower your dietary choices with WhatsInMyFood. Simply snap a photo of any food's ingredient list, and our AI-driven platform provides a comprehensive analysis of each ingredient, highlighting its level of processing. Make informed decisions and understand what's in your food today.",
+  keywords: [
+    "Food Ingredient Analysis",
+    "Food Processing",
+    "Food Ingredients",
+    "Food AI",
+    "Food Analysis",
+    "Food Processing Level",
+    "Food Processing Analysis",
+    "Food Processing AI",
+    "Food Processing Level AI",
+    "Nutritional Information",
+    "Food Nutrition",
+    "Food Nutrition Analysis",
+    "Food Nutrition Level",
+  ],
 };
 
 export default function RootLayout({
