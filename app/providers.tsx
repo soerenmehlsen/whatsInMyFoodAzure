@@ -8,9 +8,8 @@ import PostHogPageView from "./components/analytics/PostHogPageView";
 export function PostHogProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY!, {
-      api_host: "https://www.whatsinmyfood.live/ingest",
-      ui_host: "https://www.whatsinmyfood.live",
-      capture_pageview: true,
+      api_host: process.env.NEXT_PUBLIC_POSTHOG_HOST,
+      capture_pageview: true, // Enable pageleave capture
     });
   }, []);
 
