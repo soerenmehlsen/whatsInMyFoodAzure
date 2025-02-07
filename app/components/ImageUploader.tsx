@@ -9,6 +9,7 @@ import { Input } from "./ui/input";
 import { IngredientGrid } from "./ingredient-grid";
 import { Fade } from "./ui/fade";
 import { exampleUrl, exampleIngredient } from "@/lib/consant";
+import FilterDropdown from "./FilterDropdown";  
 
 export interface IngredientItem {
   name: string;
@@ -28,6 +29,7 @@ export function ImageUploader() {
     [],
   );
   const [searchTerm, setSearchTerm] = useState("");
+  const [selectedNovaFilters, setSelectedNovaFilters] = useState<string[]>([]);
 
   const handleFileChange = async (file: File) => {
     const objectUrl = URL.createObjectURL(file);
@@ -58,9 +60,14 @@ export function ImageUploader() {
     setParsedIngredient(json.ingredient);
   };
 
-  const filteredIngredient = (parsedIngredient || []).filter((item) =>
-    item.name.toLowerCase().includes(searchTerm.toLowerCase()),
-  );
+  const filteredIngredient = (parsedIngredient || [])
+    .filter((item) =>
+      item.name.toLowerCase().includes(searchTerm.toLowerCase())
+    )
+    .filter((item) => 
+      selectedNovaFilters.length === 0 || 
+      selectedNovaFilters.includes(item.nova_classification)
+    );
 
   const handleExampleImage = async () => {
     setStatus("uploading");
@@ -191,7 +198,8 @@ export function ImageUploader() {
           <h2 className="text-4xl font-bold mb-5">
             Found {parsedIngredient.length} ingredients
           </h2>
-          <div className="relative mb-6">
+          <div className="flex gap-4 mb-6">
+          <div className="relative flex-1">
             <MagnifyingGlassIcon className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-400" />
             <Input
               type="text"
@@ -200,6 +208,8 @@ export function ImageUploader() {
               onChange={(e) => setSearchTerm(e.target.value)}
               className="pl-10"
             />
+          </div>
+          <FilterDropdown onFilterChange={setSelectedNovaFilters} />
           </div>
           <IngredientGrid items={filteredIngredient} />
         </div>
