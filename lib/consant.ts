@@ -3,148 +3,118 @@ export const exampleUrl =
 
 export const exampleIngredient = [
   {
-    name: 'hvedemel 79%',
-    description: 'Hvedemel, 79% af produktet.',
-    nova_classification: '2',
-    reason: 'Hvedemel er et behandlet kornprodukt, men det er stadig et relativt enkelt ingrediens, der bruges i madlavning.'
+    name: 'hvedemel',
+    description: 'Hvedemel er fintmalet hvede, der primært bruges til bagning.',
+    nova_classification: '1',
+    reason: 'Hvedemel er en minimalt bearbejdet fødevare, da det blot er malet hvede.'
   },
   {
     name: 'palmeolie',
-    description: 'Palmeolie, et vegetabilsk fedtstof.',
+    description: 'Palmeolie er en vegetabilsk olie, der udvindes fra frugterne af oliepalmen.',
     nova_classification: '2',
-    reason: 'Palmeolie er et raffineret vegetabilsk fedtstof, der er blevet behandlet, men det er stadig en enkelt ingrediens.'
+    reason: 'Palmeolie er en forarbejdet kulinarisk ingrediens, da den er udvundet og raffineret fra en naturlig kilde.'
   },
   {
     name: 'salt',
-    description: 'Salt, natriumklorid, til at give smag.',
+    description: 'Salt er et mineral, der bruges til at give smag og konservere mad.',
     nova_classification: '2',
-    reason: 'Salt er et raffineret mineral, der er blevet behandlet, men det er stadig en enkelt ingrediens.'
+    reason: 'Salt er en forarbejdet kulinarisk ingrediens, da det er udvundet og raffineret fra naturlige kilder.'
   },
   {
     name: 'krydderier',
-    description: 'En blanding af forskellige krydderier for smag og aroma.',
-    nova_classification: '2',
-    reason: 'Krydderier kan være tørrede og/eller malede, men de er stadig relativt ubehandlede.'
+    description: 'Krydderier er aromatiske plantedele, der bruges til at give smag til mad.',
+    nova_classification: '1',
+    reason: 'Krydderier er typisk tørrede og malede plantedele, hvilket gør dem til minimalt bearbejdede fødevarer.'
   },
   {
     name: 'sukker',
-    description: 'Sukker, saccharose, til sødme.',
+    description: 'Sukker er et sødt stof, der primært bruges til at søde mad og drikke.',
     nova_classification: '2',
-    reason: 'Sukker er et raffineret produkt af sukkerrør eller sukkerroer, men det er stadig en enkelt ingrediens.'
+    reason: 'Sukker er en forarbejdet kulinarisk ingrediens, da det er udvundet og raffineret fra sukkerrør eller sukkerroer.'
   },
   {
     name: 'E621',
-    description: 'E621 (Mononatriumglutamat), en smagsforstærker, der fremhæver den umami-smag.',
+    description: 'E621 (Mononatriumglutamat) er en smagsforstærker, der giver en umami-smag.',
     nova_classification: '4',
-    reason: 'E621 er et tilsætningsstof, der er kemisk fremstillet og ikke findes naturligt i fødevarer.'
+    reason: 'E621 er et tilsætningsstof, der bruges til at forstærke smagen, hvilket typisk findes i ultraforarbejdede fødevarer.'
   },
   {
     name: 'E635',
-    description: "E635 (5'-ribonukleotider), en smagsforstærker, der forbedrer smagen.",
+    description: "E635 (Dinatriuminosinat) er en smagsforstærker, der bruges i kombination med andre smagsforstærkere.",
     nova_classification: '4',
-    reason: 'E635 er et tilsætningsstof, der er kemisk fremstillet og ikke findes naturligt i fødevarer.'
+    reason: 'E635 er et tilsætningsstof, der bruges til at forstærke smagen, hvilket typisk findes i ultraforarbejdede fødevarer.'
   },
   {
     name: 'chilipulver',
-    description: 'Chili pulver, for at give en let krydret smag.',
-    nova_classification: '2',
-    reason: 'Chili pulver er tørret og malet chili, men det er stadig et relativt ubehandlet krydderi.'
+    description: 'Chilipulver er tørrede og malede chilifrugter, der bruges til at give smag til mad.',
+    nova_classification: '1',
+    reason: 'Chilipulver er en minimalt bearbejdet fødevare, da det blot er tørrede og malede chilifrugter.'
   },
   {
     name: 'tørret forårsløg',
-    description: 'Tørret forårsløg, til at give en let løgsmag.',
-    nova_classification: '2',
-    reason: 'Tørret forårsløg er et minimalt behandlet produkt.'
+    description: 'Tørret forårsløg er forårsløg, der er blevet tørret for at forlænge holdbarheden.',
+    nova_classification: '1',
+    reason: 'Tørret forårsløg er en minimalt bearbejdet fødevare, da det blot er blevet tørret.'
   },
   {
     name: 'aroma',
-    description: 'En kompleks blanding af aromastoffer, der bidrager til den samlede smagsprofil.',
+    description: 'Aroma er et stof, der tilsættes for at give mad en bestemt smag eller duft.',
     nova_classification: '4',
-    reason: 'Aromaer er ofte komplekse blandinger af syntetiske og/eller naturligt ekstraherede stoffer, og er derfor ultra-forarbejdede.'
+    reason: 'Aroma er et tilsætningsstof, der bruges til at forbedre smagen eller duften, hvilket typisk findes i ultraforarbejdede fødevarer.'
   },
   {
     name: 'E500(ii)',
-    description: 'E500(ii) (Natriumcarbonater), et surhedsregulerende middel.',
+    description: 'E500(ii) (Natriumhydrogencarbonat) bruges som et surhedsregulerende middel og hævemiddel.',
     nova_classification: '4',
-    reason: 'E500(ii) er et tilsætningsstof, der er kemisk fremstillet og ikke findes naturligt i fødevarer.'
+    reason: 'E500(ii) er et tilsætningsstof, der bruges til at regulere surhedsgraden, hvilket typisk findes i ultraforarbejdede fødevarer.'
   },
   {
     name: 'E501(i)',
-    description: 'E501(i) (Kaliumsulfater), et surhedsregulerende middel.',
+    description: 'E501(i) (Kaliumcarbonat) bruges som et surhedsregulerende middel.',
     nova_classification: '4',
-    reason: 'E501(i) er et tilsætningsstof, der er kemisk fremstillet og ikke findes naturligt i fødevarer.'
+    reason: 'E501(i) er et tilsætningsstof, der bruges til at regulere surhedsgraden, hvilket typisk findes i ultraforarbejdede fødevarer.'
   },
   {
     name: 'E451(i)',
-    description: 'E451(i) (Trikalciumphosphat), et emulgator og stabilisator',
+    description: 'E451(i) (Penta-natriumtriphosphat) bruges som stabilisator og emulgator.',
     nova_classification: '4',
-    reason: 'E451(i) er et tilsætningsstof, der er kemisk fremstillet og ikke findes naturligt i fødevarer.'
+    reason: 'E451(i) er et tilsætningsstof, der bruges som stabilisator og emulgator, hvilket typisk findes i ultraforarbejdede fødevarer.'
   },
   {
     name: 'E330',
-    description: 'E330 (Citronsyre), et surhedsregulerende middel.',
-    nova_classification: '2',
-    reason: 'Selvom E330 kan være syntetisk fremstillet, findes den også naturligt i citrusfrugter og er et relativt simpelt stof.'
+    description: 'E330 (Citronsyre) bruges som et surhedsregulerende middel og antioxidant.',
+    nova_classification: '4',
+    reason: 'E330 er et tilsætningsstof, der bruges til at regulere surhedsgraden og som antioxidant, hvilket typisk findes i ultraforarbejdede fødevarer.'
   },
   {
     name: 'E466',
-    description: 'E466 (Cellulosegummi), et fortykningsmiddel, der giver en mere cremet konsistens.',
+    description: 'E466 (Carboxymethylcellulose), et fortykningsmiddel, der giver en mere cremet konsistens.',
     nova_classification: '4',
-    reason: 'E466 er et tilsætningsstof, der er kemisk fremstillet og ikke findes naturligt i fødevarer.'
+    reason: 'E466 er et tilsætningsstof, der bruges som fortykningsmiddel, hvilket typisk findes i ultraforarbejdede fødevarer'
   },
   {
     name: 'farve (almindelig karamel)',
-    description: 'Almindelig karamel, et naturligt farvestof.',
-    nova_classification: '2',
-    reason: 'Almindelig karamel er et naturligt farvestof, men det er behandlet.'
-  },
-  {
-    name: 'sojasauce (sojabønner, vand, salt)',
-    description: 'Sojasovs lavet af sojabønner, vand og salt',
+    description: 'Almindelig karamel bruges som farvestof.',
     nova_classification: '3',
-    reason: 'Sojasovs er et fermenteret produkt, hvilket er en mere kompleks proces end minimal forarbejdning.'
+    reason: 'Karamel er en forarbejdet fødevare, da det er sukker, der er blevet opvarmet og karamelliseret.'
   },
   {
-    name: 'æg',
-    description: 'Æg, en kilde til protein og fedt',
-    nova_classification: '1',
-    reason: 'Æg er et uforarbejdet fødevareprodukt.'
+    name: 'sojasauce',
+    description: 'Sojasauce er en fermenteret sauce lavet af sojabønner, vand og salt.',
+    nova_classification: '3',
+    reason: 'Sojasauce er en forarbejdet fødevare, da den er fremstillet gennem en fermenteringsproces.'
   },
   {
-    name: 'mælk',
-    description: 'Mælk, en kilde til protein, calcium og vitaminer.',
+    name: 'sojabønner',
+    description: 'Sojabønner er en type bælgfrugt, der er rig på protein og bruges i mange fødevarer.',
     nova_classification: '1',
-    reason: 'Mælk er et uforarbejdet fødevareprodukt.'
+    reason: 'Sojabønner er en minimalt bearbejdet fødevare, da de blot er blevet høstet og tørret.'
   },
   {
-    name: 'krebsdyr',
-    description: 'Krebsdyr, en kilde til protein og omega-3 fedtsyrer.',
+    name: 'vand',
+    description: 'Vand er en essentiel ingrediens i mange fødevarer.',
     nova_classification: '1',
-    reason: 'Krebsdyr er et uforarbejdet fødevareprodukt.'
-  },
-  {
-    name: 'fisk',
-    description: 'Fisk, en kilde til protein og omega-3 fedtsyrer.',
-    nova_classification: '1',
-    reason: 'Fisk er et uforarbejdet fødevareprodukt.'
-  },
-  {
-    name: 'sesam',
-    description: 'Sesamfrø, rige på olie og fibre.',
-    nova_classification: '1',
-    reason: 'Sesamfrø er et uforarbejdet fødevareprodukt.'
-  },
-  {
-    name: 'selleri',
-    description: 'Selleri, en grøntsag med en mild smag.',
-    nova_classification: '1',
-    reason: 'Selleri er en uforarbejdet grøntsag.'
-  },
-  {
-    name: 'bløddyr',
-    description: 'Bløddyr, en kilde til protein.',
-    nova_classification: '1',
-    reason: 'Bløddyr er et uforarbejdet fødevareprodukt.'
+    reason: 'Vand er en uforbearbejdet fødevare.'
   }
 ];
 
