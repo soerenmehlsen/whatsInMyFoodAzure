@@ -18,7 +18,7 @@ export default function FilterDropdown({ onFilterChange }: { onFilterChange: (se
   <div className="relative">
     <details className="group">
       <summary
-        className="flex cursor-pointer items-center gap-2 border-b border-gray-400 pb-1 text-black transition hover:border-gray-600"
+        className="flex cursor-pointer items-center gap-2 border-b border-gray-400 pb-1 text-black transition hover:border-gray-600 [&::-webkit-details-marker]:hidden list-none"
       >
         <span className="text-sm font-medium"> Filter </span>
 
