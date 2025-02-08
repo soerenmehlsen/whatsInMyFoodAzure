@@ -31,6 +31,15 @@ export function ImageUploader() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedNovaFilters, setSelectedNovaFilters] = useState<string[]>([]);
 
+   // Reset function
+   const handleReset = () => {
+    setStatus("initial");
+    setIngredientUrl(undefined);
+    setParsedIngredient([]);
+    setSearchTerm("");
+    setSelectedNovaFilters([]);
+  };
+
   const handleFileChange = async (file: File) => {
     const objectUrl = URL.createObjectURL(file);
     setStatus("uploading");
@@ -140,6 +149,7 @@ export function ImageUploader() {
 
       {ingredientUrl && (
         <div className="my-10 mx-auto flex flex-col items-center max-w-2xl">
+          <p className="text-lg text-gray-600 mb-4 cursor-pointer" onClick={handleReset}>Upload a new image</p>
           <Image
             width={1024}
             height={768}
