@@ -1,4 +1,5 @@
 import {GoogleGenerativeAI, SchemaType} from "@google/generative-ai";
+import { NextResponse } from "next/server";
 
 // Initialize the Google AI client
 const genAI = new GoogleGenerativeAI(process.env.GOOGLE_API_KEY!);
@@ -36,12 +37,13 @@ const schema = {
 };
 
 export async function POST(request: Request) {
+  try {
   const { ingredientUrl } = await request.json();
 
   console.log({ ingredientUrl });
 
   if (!ingredientUrl) {
-    return Response.json(
+    return NextResponse.json(
       { error: "No ingredient URL provided" },
       { status: 400 },
     );
@@ -79,6 +81,10 @@ NOVA Classification Groups:
 
   // Fetch the image data from the provided URL
   const imageResponse = await fetch(ingredientUrl);
+  if (!imageResponse.ok) {
+    throw new Error(`Failed to fetch image: ${imageResponse.statusText}`);
+  }
+  
   const imageData = await imageResponse.arrayBuffer();
 
   // Convert the image data to base64
@@ -103,15 +109,30 @@ NOVA Classification Groups:
     console.log({ parsedIngredients });
   } catch (error) {
     console.error('Error parsing ingredients JSON:', error);
-    return Response.json(
+    return NextResponse.json(
         { error: 'Failed to parse ingredients data' },
         { status: 500 }
     );
   }
 
+  // Log the total request duration
   console.log(`Total request duration: ${Date.now() - outputStartTime}ms`);
 
-  return Response.json({ ingredient: parsedIngredients });
+  return NextResponse.json({ success: true, ingredient: parsedIngredients });
+
+} catch (error) {
+    // Logging the error
+    console.error('Error processing request:', error);
+    
+    // User-friendly error message 
+    return NextResponse.json(
+        { success: false, error: 'Something went wrong while processing your image. Please try again.',
+          details: process.env.NODE_ENV === 'development' ? error instanceof Error ? error.message : 'Unknown error' : undefined
+        },
+        { status: 500 }
+    );
+
+}
 }
 
 export const maxDuration = 60;
