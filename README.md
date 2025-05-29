@@ -6,7 +6,7 @@
 
 ## Tech stack
 
-- [Gemini 1.5 Flash] (Scan text, create description, NOVA classification)
+- [Gemini 2.5 Flash] (Scan text, create description, NOVA classification)
 - Next.js (Framework)
 - Supabase (Saves the images in the database)
 
