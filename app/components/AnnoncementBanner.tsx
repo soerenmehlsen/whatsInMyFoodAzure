@@ -1,4 +1,4 @@
-import { SignUpButton } from "@clerk/nextjs";
+
 
 interface AnnouncementBannerProps {
     message: string;
@@ -14,11 +14,9 @@ interface AnnouncementBannerProps {
         <p className="text-center text-sm font-medium">
           {message}
           {linkText && (
-          <SignUpButton mode="modal">
             <button className="inline-block underline ml-1">
               {linkText}
             </button>
-          </SignUpButton>
         )}
         </p>
       </div>

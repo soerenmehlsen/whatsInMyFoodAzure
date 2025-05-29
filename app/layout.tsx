@@ -3,7 +3,6 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { Header } from "./components/header";
 import { Footer } from "./components/footer";
-import { ClerkProvider } from '@clerk/nextjs'
 import { GoogleAnalytics } from '@next/third-parties/google'
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { PostHogProvider } from "./providers";
@@ -45,7 +44,6 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider afterSignOutUrl="/">
     <html lang="en">
     <PostHogProvider>
       <body
@@ -59,6 +57,5 @@ export default function RootLayout({
       </body>
     </PostHogProvider>
     </html>
-    </ClerkProvider>
   );
 }

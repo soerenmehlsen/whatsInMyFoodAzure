@@ -1,7 +1,6 @@
 "use client"
 import Link from "next/link";
 import { MdOutlineFastfood } from "react-icons/md";
-import { UserButton, SignedOut, SignInButton, SignUpButton, SignedIn} from '@clerk/nextjs'
 import  React, { useState, useEffect } from 'react';
 import  AnnouncementBanner  from './AnnoncementBanner';
 
@@ -28,43 +27,37 @@ export function Header() {
             </span>
           </Link>
 
-          <SignedOut>
+       
             <div className="flex space-x-2">
-              <SignInButton>
+             
                 <button
                     className="bg-white hover:bg-gray-200 text-black font-semibold rounded-3xl border transition-colors duration-200 px-4 py-2 sm:px-8 sm:py-3 text-sm sm:text-base">
                   Login
                 </button>
-              </SignInButton>
-              <SignUpButton>
+              
+          
                 <button
                     className="bg-black hover:bg-gray-500 text-white font-semibold rounded-3xl transition-colors duration-200 px-4 py-2 sm:px-8 sm:py-3 text-sm sm:text-base">
                   Sign Up
                 </button>
-              </SignUpButton>
+  
             </div>
-          </SignedOut>
+
           
-          <SignedIn>
-            <UserButton
-                showName={!isMobile}
-                appearance={{
-                  elements: {
-                    userButtonAvatarBox: "w-8 h-8",
-                  },
-                }}
-            />
-          </SignedIn>
+        
+           
+
+      
         </div>
       </div>
-      <SignedOut>
+
       <div className="text-center mx-auto ">
                 <AnnouncementBanner
                     message="🎉 Limited Time Offer: Get Access Completely Free!"
                     linkText="Try it Now →"
                     />
             </div>
-            </SignedOut>
+           
     </header>
   );
 }

@@ -1,13 +1,5 @@
-import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server'
-
-const isPublicRoute = createRouteMatcher(['/sign-in(.*)', '/sign-up(.*)', '/'])
-
-export default clerkMiddleware(async (auth, request) => {
-    if (!isPublicRoute(request)) {
-        await auth.protect()
-    }
-})
-
+import { NextResponse } from 'next/server';
+import type { NextRequest } from 'next/server';
 
 export const config = {
   matcher: [
@@ -17,3 +9,12 @@ export const config = {
     '/(api|trpc)(.*)',
   ],
 };
+
+export function middleware(request: NextRequest) {
+  // Your middleware logic here
+  // For example:
+  // const requestHeaders = new Headers(request.headers);
+  // requestHeaders.set('x-middleware-cache', 'no-cache');
+  
+  return NextResponse.next();
+}
