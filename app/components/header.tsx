@@ -1,7 +1,6 @@
 "use client"
 import Link from "next/link";
 import { MdOutlineFastfood } from "react-icons/md";
-import  React, { useState, useEffect } from 'react';
 import  AnnouncementBanner  from './AnnoncementBanner';
 
 export function Header() {
